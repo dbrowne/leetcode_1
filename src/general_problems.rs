@@ -11,3 +11,6 @@ mod a_0010_regex;
 mod a_0841_keys_and_rooms;
 mod pairs;
 mod a_1598_Crawler_Log_Folder;
+mod a_1962_remove_stones_to_minimize_the_total;
+mod a_0066_plus_one;
+mod a_0067_add_binary;
