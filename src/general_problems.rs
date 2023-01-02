@@ -14,3 +14,4 @@ mod a_1598_Crawler_Log_Folder;
 mod a_1962_remove_stones_to_minimize_the_total;
 mod a_0066_plus_one;
 mod a_0067_add_binary;
+mod a_0415_add_strings;
