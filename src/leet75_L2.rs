@@ -16,4 +16,14 @@ mod a_0148_sort_list;
 mod a_02131_longest_palindrome_by_concatenating_two_letter_words;
 mod a_00621_task_scheduler;
 mod a_00110_balanced_binary_tree;
-
+mod a_00543_diameter_of_binary_tree;
+mod a_00437_path_sum_III;
+mod a_0074_search_2d_matrix;
+mod a_00033_search_in_rotated_sorted_array;
+mod a_00108_convert_sorted_array_to_bst;
+mod a_208_kth_smallest_element_in_bst;
+mod a_00173_bst_iterator;
+mod a_00994_rotting_oranges;
+mod a_00417_pacific_atlantic_water_flow;
+mod a_00230_kth_smallest_elem_in_bst;
+mod a_00210_course_schedule_II;
