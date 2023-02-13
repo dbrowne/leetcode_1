@@ -16,3 +16,4 @@ mod a_0066_plus_one;
 mod a_0067_add_binary;
 mod a_0415_add_strings;
 mod a_0045_jump_game_II;
+mod a_1523_count_odd_numbers_in_an_interval_range;

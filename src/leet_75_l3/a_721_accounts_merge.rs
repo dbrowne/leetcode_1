@@ -53,51 +53,60 @@
 // accounts[i][j] (for j > 0) is a valid email.
 
 
-pub  mod  a721{
-
-
+pub mod a721 {
     #[derive(Debug, Clone)]
-    struct Dis_Set{
+    struct Dis_Set {
         item: Vec<usize>,
         rank: Vec<usize>
     }
 
     impl Dis_Set {
-        fn new(n: usize) ->Self{
-            let  mut item:Vec<usize> = vec![0;n];
-            let  mut rank :Vec<usize> = vec![0;n];
-            for ctr in 0..n  {
+        fn new(n: usize) -> Self {
+            let mut item: Vec<usize> = vec![0; n];
+            let mut rank: Vec<usize> = vec![0; n];
+            for ctr in 0..n {
                 item[ctr] = ctr;
                 rank[ctr] = 0;
             }
-            Self {item, rank}
+            Self { item, rank }
         }
-        fn find(&mut self, n:usize) ->usize{
+        fn find(&mut self, n: usize) -> usize {
             if self.item[n] == n {
-                return n
+                return n;
             }
             self.item[n] = self.find(self.item[n]);
             self.item[n]
         }
 
-        fn merge(&mut self, n:usize, m:usize) {
-            let  n_root = self.find(n);
-            let  m_root = self.find(m);
-
+        fn merge(&mut self, n: usize, m: usize) {
+            let n_root = self.find(n);
+            let m_root = self.find(m);
         }
-
     }
-    pub fn accounts_merge(accounts: Vec<Vec<String>>) -> Vec<Vec<String>> {
 
+    pub fn accounts_merge(accounts: Vec<Vec<String>>) -> Vec<Vec<String>> {
         vec![vec!["".to_string()]]
     }
 }
 
 
 #[cfg(test)]
-mod  test{
+mod test {
     #[test]
-    fn t_000(){
-        
+    fn t_000() {
+        let inp: Vec<Vec<String>> = vec![
+            vec!["John".to_string(), "johnsmith@mail.com".to_string(),
+                 "john_newyork@mail.com".to_string()],
+            vec!["John".to_string(), "johnsmith@mail.com".to_string(), "john00@mail.com".to_string()],
+            vec!["Mary".to_string(), "mary@mail.com".to_string()],
+            vec!["John".to_string(), "johnnybravo@mail.com".to_string()]];
+        let ans: Vec<Vec<String>> = vec![vec!["Mary".to_string(), "mary@mail.com".to_string()],
+                                         vec!["John".to_string(), "johnnybravo@mail.com".to_string()],
+                                        vec! ["John".to_string(), "john00@mail.com".to_string(),
+                                             "john_newyork@mail.com".to_string(), "johnsmith@mail.com".to_string()]];
+
+
+//
+// vec!["John".to_string(),"johnnybravo@mail.com".to_string()]];
     }
 }
