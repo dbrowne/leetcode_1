@@ -24,3 +24,4 @@ mod a_00783_min_distance_bet_bst_nodes;
 mod a_00103_Binary_tree_Zigzag_level_order_traversal;
 mod a_540_single_element_in_sorted_array;
 mod a_502_IPO;
+mod a_01675_minimize_deviation_in_array;
