@@ -57,7 +57,7 @@ pub mod a_009 {
 
 #[cfg(test)]
 mod test {
-    use crate::general_problems::a_009_plaindrome::a_009::is_palindrome;
+    use crate::general_problems::a_0009_plaindrome::a_009::is_palindrome;
 
     #[test]
     fn test_01() {
