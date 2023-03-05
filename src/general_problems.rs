@@ -24,6 +24,7 @@ mod a_00783_min_distance_bet_bst_nodes;
 mod a_0103_Binary_tree_Zigzag_level_order_traversal;
 mod a_540_single_element_in_sorted_array;
 mod a_502_IPO;
+mod a_0443_string_compression;
 mod a_01675_minimize_deviation_in_array;
 mod a_0012_Integer_to_Roman;
 mod a_1011_Capacity_to_Ship_Packages_within_D_Days;

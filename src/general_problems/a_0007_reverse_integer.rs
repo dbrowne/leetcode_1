@@ -50,10 +50,10 @@ pub mod o7 {
         while x_mut != 0 {
             let pop = x_mut % 10;
             x_mut /= 10;
-            if (rev > i32::MAX / 10 || (rev == i32::MAX / 10 && pop > 7)) {
+            if rev > i32::MAX / 10 || (rev == i32::MAX / 10 && pop > 7) {
                 return 0;
             }
-            if (rev < i32::MIN / 10 || (rev == i32::MIN / 10 && pop < -8)) {
+            if rev < i32::MIN / 10 || (rev == i32::MIN / 10 && pop < -8) {
                 return 0;
             }
             rev = rev * 10 + pop;

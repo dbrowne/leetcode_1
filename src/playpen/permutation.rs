@@ -5,30 +5,32 @@
  */
 
 pub  mod pm {
-    // use rand::Rnd;
-    //
-    // pub  fn  test_perm(inp:i32) ->i32{
-    //     let mut x: Vec<i32> = Vec::new();
-    //
-    //     let  mut rval = rand::thread_rng();
-    //     for y in 0..100  {
-    //         x.push(rval.gen_range(5..900);
-    //
-    //     }
-    //
-    //     println!("{:?}",x);
-    //     0
-    //
-    // }
+    pub  fn  t001(inp:Vec<i32>, profits:Vec<i32>) -> i32{
+        let  mut ans =0;
+        let n = profits.len();
+        let mut x: Vec<(i32, i32)> = (0..n)
+            .map(|x|(profits[x], inp[x]))
+            .collect();
+
+        println!("{:?}",x);
+
+
+        ans
+    }
+
+
 }
 
 
 
 #[cfg(test)]
 mod test{
-//     use crate::playpen::permutation::pm::test_perm;
-//     #[test]
-//     fn test_01(){
-//         assert_eq!(0,test_perm(3));
-//     }
+    use crate::playpen::permutation::pm::t001;
+    #[test]
+    fn  t_001(){
+        let  inp =vec![1,2,3,4,5,7];
+        let  profits:Vec<i32> =vec![111,222,333,444,555];
+        assert_eq!(0, t001(inp,profits));
+    }
+
 }
