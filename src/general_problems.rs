@@ -34,3 +34,7 @@ mod a_0427_construct_quad_tree;
 mod _find_duplicate_subtrees;
 mod a_0912_Sort_an_array;
 mod a_1345_jump_game_iv;
+mod a_0017_letter_combination_of_a_phone_num;
+mod a_1539_kth_missing_positive_num;
+mod a_2187_min_time_to_comp_trips;
+mod a_0018_4sum;
