@@ -46,3 +46,5 @@ mod a_382_Linked_list_Random_Node;
 mod a_0024_Swap_Nodes_in_Pairs;
 mod a_0109_convert_sorted_list_to_binary_search_t;
 mod a_0721_accounts_merge;
+mod a_0129_sum_root_of_leaf_numbers;
+mod a_0958_check_completeness_of_a_binary_tree;
