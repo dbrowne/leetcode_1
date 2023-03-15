@@ -37,73 +37,68 @@
 // piles.length <= h <= 109
 // 1 <= piles[i] <= 109
 
+pub mod a875 {
 
-pub  mod  a875{
-    use std::os::unix::raw::ino_t;
-
-    pub  fn  min_eating_speed(piles:Vec<i32>, h:i32) ->i32{
-       //based on c++ binary search solution
-        if  piles.len() ==1{
-            let  mut x:i64 = piles[0] as i64 /h as i64;
-            if  piles[0] as i64%h as i64 !=0{
-                x +=1;
+    pub fn min_eating_speed(piles: Vec<i32>, h: i32) -> i32 {
+        //based on c++ binary search solution
+        if piles.len() == 1 {
+            let mut x: i64 = piles[0] as i64 / h as i64;
+            if piles[0] as i64 % h as i64 != 0 {
+                x += 1;
             }
-            return x as i32
-
+            return x as i32;
         }
 
-        let mut right:i64 =  *piles.iter().max().unwrap() as i64;
-        let  mut left:i64 = 0;
+        let mut right: i64 = *piles.iter().max().unwrap() as i64;
+        let mut left: i64 = 0;
 
         while left < right {
-            let  mid:i64 = (left+right)/2;
-            let  mut hours_spent:i64 =0;
+            let mid: i64 = (left + right) / 2;
+            let mut hours_spent: i64 = 0;
             for p in &piles {
-                let  p64:i64 = *p as i64;
-                hours_spent += p64 /mid;
-                if  p64%mid !=0{
-                    hours_spent +=1;
+                let p64: i64 = *p as i64;
+                hours_spent += p64 / mid;
+                if p64 % mid != 0 {
+                    hours_spent += 1;
                 }
             }
-            if  hours_spent <= h as i64{
+            if hours_spent <= h as i64 {
                 right = mid;
-            } else{
-                left = mid +1;
+            } else {
+                left = mid + 1;
             }
-
         }
         right as i32
     }
 }
 
-
 #[cfg(test)]
-mod  test{
+mod test {
     use crate::general_problems::a_875_koko_eating_bananas::a875::min_eating_speed;
 
     #[test]
-    fn t_001(){
+    fn t_001() {
         let piles: Vec<i32> = vec![3, 6, 7, 11];
         let h = 8;
-        let  ans = 4;
-        assert_eq!(ans,min_eating_speed(piles,h));
+        let ans = 4;
+        assert_eq!(ans, min_eating_speed(piles, h));
     }
 
     #[test]
-    fn t_002(){
-        let  piles:Vec<i32> = vec![30,11,23,4,20];
-        let  h = 5;
-        let  ans = 30;
-
-        assert_eq!(ans, min_eating_speed(piles,h));
-    }
-
-    #[test]
-    fn t_003(){
+    fn t_002() {
         let piles: Vec<i32> = vec![30, 11, 23, 4, 20];
-        let  h = 6;
+        let h = 5;
+        let ans = 30;
+
+        assert_eq!(ans, min_eating_speed(piles, h));
+    }
+
+    #[test]
+    fn t_003() {
+        let piles: Vec<i32> = vec![30, 11, 23, 4, 20];
+        let h = 6;
         let ans = 23;
-        assert_eq!(ans, min_eating_speed(piles,h));
+        assert_eq!(ans, min_eating_speed(piles, h));
     }
 
     #[test]
@@ -114,3 +109,4 @@ mod  test{
         assert_eq!(ans, min_eating_speed(piles, h));
     }
 }
+

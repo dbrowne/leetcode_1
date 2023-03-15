@@ -1,31 +1,30 @@
 pub mod day_9 {
     use std::collections::VecDeque;
 
-    use std::os::unix::raw::ino_t;
-
-
-
-
-        pub fn flood_fill3(mut image: Vec<Vec<i32>>, sr: i32, sc: i32, color: i32) -> Vec<Vec<i32>> {
-            if image[sr as usize][sc as usize] == color {
-                return image;
-            }
-            let mut image_clone = image.clone();
-            let old_color = image_clone[sr as usize][sc as usize];
-            fill(&mut image_clone, sr, sc, old_color, color);
-            image_clone
+    pub fn flood_fill3(mut image: Vec<Vec<i32>>, sr: i32, sc: i32, color: i32) -> Vec<Vec<i32>> {
+        if image[sr as usize][sc as usize] == color {
+            return image;
         }
-        fn fill(image:&mut Vec<Vec<i32>>, sr: i32, sc: i32, old_color: i32, new_color: i32) {
-            if sc < 0 || sr < 0 || sr >= image.len() as i32 || sc >= image[sr as usize].len() as i32 ||
-                image[sr as usize][sc as usize] != old_color {
-                return;
-            }
-            image[sr as usize][sc as usize] = new_color;
-            fill(image, sr + 1, sc, old_color, new_color);
-            fill(image, sr - 1, sc, old_color, new_color);
-            fill(image, sr, sc + 1, old_color, new_color);
-            fill(image, sr, sc - 1, old_color, new_color);
+        let mut image_clone = image.clone();
+        let old_color = image_clone[sr as usize][sc as usize];
+        fill(&mut image_clone, sr, sc, old_color, color);
+        image_clone
+    }
+    fn fill(image: &mut Vec<Vec<i32>>, sr: i32, sc: i32, old_color: i32, new_color: i32) {
+        if sc < 0
+            || sr < 0
+            || sr >= image.len() as i32
+            || sc >= image[sr as usize].len() as i32
+            || image[sr as usize][sc as usize] != old_color
+        {
+            return;
         }
+        image[sr as usize][sc as usize] = new_color;
+        fill(image, sr + 1, sc, old_color, new_color);
+        fill(image, sr - 1, sc, old_color, new_color);
+        fill(image, sr, sc + 1, old_color, new_color);
+        fill(image, sr, sc - 1, old_color, new_color);
+    }
 
     pub fn flood_fill(image: Vec<Vec<i32>>, sr: i32, sc: i32, color: i32) -> Vec<Vec<i32>> {
         let mut q: VecDeque<(i32, i32)> = VecDeque::new();

@@ -53,7 +53,7 @@ pub  mod  a_540{
 
 #[cfg(test)]
 mod  test{
-    use crate::general_problems::a_540_single_element_in_sorted_array::a_540::single_non_duplicate;
+    use crate::general_problems::a_0540_single_element_in_sorted_array::a_540::single_non_duplicate;
 
     #[test]
     fn t_001(){

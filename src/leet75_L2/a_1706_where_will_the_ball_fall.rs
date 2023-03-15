@@ -4,7 +4,6 @@
  * dwight@dwightjbrowne.com
  */
 
-
 // You have a 2-D grid of size m x n representing a box, and you have n balls. The box is open on the top and bottom sides.
 //
 // Each cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left.
@@ -61,15 +60,15 @@ mod p3 {
             return col;
         }
         let next_col = col + grid[row as usize][col as usize];
-        if (next_col < 0 || next_col > (grid[0].len() - 1) as i32 ||
-            grid[row as usize][col as usize] != grid[row as usize][next_col as usize]) {
+        if next_col < 0
+            || next_col > (grid[0].len() - 1) as i32
+            || grid[row as usize][col as usize] != grid[row as usize][next_col as usize]
+        {
             return -1;
         }
 
         find_ball_drop_column(row + 1, next_col, grid)
     }
-
-
 }
 
 #[cfg(test)]
@@ -78,18 +77,26 @@ mod test {
 
     #[test]
     fn test_001() {
-        let inp: Vec<Vec<i32>> = vec![vec![1, 1, 1, 1, 1, 1], vec![-1, -1, -1, -1, -1, -1],
-                                      vec![1, 1, 1, 1, 1, 1],
-                                      vec![-1, -1, -1, -1, -1, -1]];
-        let ans: Vec<i32> = vec![0,1,2,3,4,-1];
+        let inp: Vec<Vec<i32>> = vec![
+            vec![1, 1, 1, 1, 1, 1],
+            vec![-1, -1, -1, -1, -1, -1],
+            vec![1, 1, 1, 1, 1, 1],
+            vec![-1, -1, -1, -1, -1, -1],
+        ];
+        let ans: Vec<i32> = vec![0, 1, 2, 3, 4, -1];
         assert_eq!(ans, find_ball(inp));
     }
     #[test]
-    fn test_002(){
-        let  inp:Vec<Vec<i32>> = vec![vec![1,1,1,-1,-1],vec![1,1,1,-1,-1],vec![-1,-1,-1,1,1],
-                                      vec![1,1,1,1,-1],vec![-1,-1,-1,-1,-1]];
+    fn test_002() {
+        let inp: Vec<Vec<i32>> = vec![
+            vec![1, 1, 1, -1, -1],
+            vec![1, 1, 1, -1, -1],
+            vec![-1, -1, -1, 1, 1],
+            vec![1, 1, 1, 1, -1],
+            vec![-1, -1, -1, -1, -1],
+        ];
         let ans: Vec<i32> = vec![1, -1, -1, -1, -1];
-        assert_eq!(ans,find_ball(inp) );
+        assert_eq!(ans, find_ball(inp));
     }
-
 }
+

@@ -1,6 +1,4 @@
 pub mod day_seven {
-    use std::env::set_current_dir;
-    use std::os::unix::raw::nlink_t;
 
     pub fn search(nums: Vec<i32>, target: i32) -> i32 {
         use std::cmp::Ordering;
@@ -40,7 +38,6 @@ pub mod day_seven {
                     return bad as i32;
                 }
             }
-            0
         }
 
         pub fn is_Bad_Version(&self, n: i32) -> bool {

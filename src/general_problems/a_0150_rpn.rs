@@ -7,7 +7,7 @@ pub mod a150 {
             } else {
                 let rtok = stk.pop().unwrap();
                 let ltok = stk.pop().unwrap();
-                match (&tok as &str) {
+                match &tok as &str {
                     "+" => stk.push(ltok + rtok),
                     "-" => stk.push(ltok - rtok),
                     "*" => stk.push(ltok * rtok),
@@ -23,7 +23,7 @@ pub mod a150 {
 
 #[cfg(test)]
 mod test {
-    use crate::general_problems::a_00150_rpn::a150::eval_rpn;
+    use crate::general_problems::a_0150_rpn::a150::eval_rpn;
 
     #[test]
     fn test_001() {

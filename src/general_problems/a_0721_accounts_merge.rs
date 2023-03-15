@@ -56,14 +56,14 @@
 pub mod a721 {
     #[derive(Debug, Clone)]
     //todo:  Complete this code!!
-    struct Dis_Set {
+    struct DisSet {
         item: Vec<usize>,
         rank: Vec<usize>
     }
 
-    impl Dis_Set {
+    impl DisSet {
         fn new(n: usize) -> Self {
-            let mut item: Vec<usize> = vec![0; n];
+                        let mut item: Vec<usize> = vec![0; n];
             let mut rank: Vec<usize> = vec![0; n];
             for ctr in 0..n {
                 item[ctr] = ctr;
@@ -96,6 +96,7 @@ mod test {
     #[test]
     fn t_000() {
         let inp: Vec<Vec<String>> = vec![
+            //todo:  FIX THIS CODE
             vec!["John".to_string(), "johnsmith@mail.com".to_string(),
                  "john_newyork@mail.com".to_string()],
             vec!["John".to_string(), "johnsmith@mail.com".to_string(), "john00@mail.com".to_string()],

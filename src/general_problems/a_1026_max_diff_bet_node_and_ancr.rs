@@ -29,8 +29,6 @@ pub mod tentwosix {
                 return -1;
             }
         }
-
-        0
     }
     pub fn helper(node: TreeNode, curMax: i32, curMin: i32) -> i32 {
         0

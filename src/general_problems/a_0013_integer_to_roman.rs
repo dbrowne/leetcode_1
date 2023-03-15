@@ -56,39 +56,32 @@
 // 'M' => integer = if previous_char == 'C' { integer + 800 } else { integer + 1000 },
 // _ => return 0
 
+pub mod a_13 {
 
-pub  mod  a_13{
-
-    pub  fn  roman_to_int(s:String)->i32{
-        let  mut ans:i32 =0;
+    pub fn roman_to_int(s: String) -> i32 {
+        let mut ans: i32 = 0;
         // a bit ugly but it works
-        let  mut s_vec:Vec<char> = s.chars().rev().collect();
-        let  mut first: Option<char> = s_vec.pop();
+        let mut s_vec: Vec<char> = s.chars().rev().collect();
+        let mut first: Option<char> = s_vec.pop();
 
-        while true {
-            let  mut  second:Option<char> = s_vec.pop();
+        loop {
+            let mut second: Option<char> = s_vec.pop();
             match (first, second) {
-                (Some('I'), Some('V') | Some('X')) =>ans -=1,
-                (Some('X'), Some('L') | Some('C')) =>ans -=10,
-                (Some('C'), Some('D') | Some('M')) => ans -=100,
-                (Some('I'),_) => ans +=1,
-                (Some('V'),_) => ans +=5,
-                (Some('X'),_) => ans +=10,
-                (Some('L'),_) => ans +=50,
-                (Some('C'),_) => ans +=100,
-                (Some('D'),_) => ans +=500,
-                (Some('M'),_) => ans +=1000,
+                (Some('I'), Some('V') | Some('X')) => ans -= 1,
+                (Some('X'), Some('L') | Some('C')) => ans -= 10,
+                (Some('C'), Some('D') | Some('M')) => ans -= 100,
+                (Some('I'), _) => ans += 1,
+                (Some('V'), _) => ans += 5,
+                (Some('X'), _) => ans += 10,
+                (Some('L'), _) => ans += 50,
+                (Some('C'), _) => ans += 100,
+                (Some('D'), _) => ans += 500,
+                (Some('M'), _) => ans += 1000,
                 (None, None) => break,
-                _ => unreachable!()
-
+                _ => unreachable!(),
             }
 
             first = second;
-
-
-
-
-
         }
 
         ans
@@ -96,27 +89,28 @@ pub  mod  a_13{
 }
 
 #[cfg(test)]
-mod  test{
+mod test {
     use crate::general_problems::a_0013_integer_to_roman::a_13::roman_to_int;
 
     #[test]
-    fn t_00(){
-        let  inp:String = "III".to_string();
-        let  ans = 3;
+    fn t_00() {
+        let inp: String = "III".to_string();
+        let ans = 3;
         assert_eq!(ans, roman_to_int(inp));
     }
 
     #[test]
-    fn t_01(){
-        let  inp:String  ="LVIII".to_string();
+    fn t_01() {
+        let inp: String = "LVIII".to_string();
         let ans = 58;
         assert_eq!(ans, roman_to_int(inp));
     }
 
     #[test]
-    fn t_02(){
-        let  inp:String = "MCMXCIV".to_string();
-        let  ans = 1994;
+    fn t_02() {
+        let inp: String = "MCMXCIV".to_string();
+        let ans = 1994;
         assert_eq!(ans, roman_to_int(inp));
     }
 }
+

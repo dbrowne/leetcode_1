@@ -38,15 +38,17 @@
 // ai != bi
 // All the pairs [ai, bi] are distinct.
 
-
 pub mod a210 {
-    use std::collections::VecDeque;
 
     pub fn find_order(num_courses: i32, prerequisites: Vec<Vec<i32>>) -> Vec<i32> {
         let tst = prerequisites.is_empty() || prerequisites[0].is_empty();
 
-        if tst && num_courses == 1 { return vec![0]; }
-        if tst && num_courses == 2 { return vec![1, 0]; }
+        if tst && num_courses == 1 {
+            return vec![0];
+        }
+        if tst && num_courses == 2 {
+            return vec![1, 0];
+        }
         let mut graph: Vec<(usize, Vec<usize>)> = vec![(0, vec![]); num_courses as usize];
         for p in prerequisites.iter() {
             graph[p[0] as usize].0 += 1;
@@ -75,19 +77,24 @@ pub mod a210 {
         }
     }
 
-
     #[derive(Copy, Clone)]
     enum Status {
         ToDo,
         InProcess,
         Done,
     }
-// Faster solution
+    // Faster solution
 
     struct Solution {}
 
     impl Solution {
-        pub fn dfs(graph: &Vec<Vec<usize>>, statuses: &mut Vec<Status>, cycle: &mut bool, cell: usize, res: &mut Vec<i32>) {
+        pub fn dfs(
+            graph: &Vec<Vec<usize>>,
+            statuses: &mut Vec<Status>,
+            cycle: &mut bool,
+            cell: usize,
+            res: &mut Vec<i32>,
+        ) {
             println!("{}", cell);
             statuses[cell] = Status::InProcess;
             for out in graph[cell].iter() {
@@ -98,7 +105,7 @@ pub mod a210 {
                     }
                     _ => {}
                 }
-            };
+            }
             statuses[cell] = Status::Done;
             res.push(cell as i32);
         }
@@ -119,7 +126,7 @@ pub mod a210 {
                     Status::Done => {}
                     _ => Solution::dfs(&graph, &mut statuses, &mut cycle, i, &mut res),
                 }
-            };
+            }
             if cycle {
                 return Vec::new();
             };
@@ -146,7 +153,6 @@ mod test {
         assert_eq!(ans, find_order(4, inp))
     }
 
-
     #[test]
     fn t_0003() {
         let inp = vec![vec![]];
@@ -155,3 +161,4 @@ mod test {
         assert_eq!(ans, find_order(1, inp));
     }
 }
+

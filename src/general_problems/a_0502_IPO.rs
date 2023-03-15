@@ -118,7 +118,7 @@ pub  mod  a_502{
 
 #[cfg(test)]
 mod  test{
-    use crate::general_problems::a_502_IPO::a_502::find_maximized_capital;
+    use crate::general_problems::a_0502_IPO::a_502::find_maximized_capital;
 
     #[test]
     fn t_001(){

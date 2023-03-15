@@ -39,7 +39,6 @@
 // It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.
 
 pub mod a_10 {
-    use std::os::unix::raw::ino_t;
 
     pub fn is_match(s: String, p: String) -> bool {
         let (ls, lp) = (s.len(), p.len());
@@ -59,8 +58,9 @@ pub mod a_10 {
                         dp[i + 1][j + 1] = dp[i][j];
                     }
                     b'*' => {
-                        if p.bytes().nth(j - 1).unwrap() != s.bytes().nth(i).unwrap() &&
-                            p.bytes().nth(j - 1).unwrap() != b'.' {
+                        if p.bytes().nth(j - 1).unwrap() != s.bytes().nth(i).unwrap()
+                            && p.bytes().nth(j - 1).unwrap() != b'.'
+                        {
                             dp[i + 1][j + 1] = dp[i + 1][j - 1];
                         } else {
                             dp[i + 1][j + 1] = dp[i + 1][j] || dp[i][j + 1] || dp[i + 1][j - 1];
@@ -78,7 +78,6 @@ pub mod a_10 {
     }
 }
 
-
 #[cfg(test)]
 mod test {
     use crate::general_problems::a_0010_regex::a_10::is_match;
@@ -88,7 +87,14 @@ mod test {
         assert_eq!(is_match(String::from("aa"), String::from("a*")), true);
         assert_eq!(is_match(String::from("ab"), String::from(".*")), true);
         assert_eq!(is_match(String::from("ab"), String::from("c*a*b")), true);
-        assert_eq!(is_match(String::from("mississippi"), String::from("mis*is*p*.")), false);
-        assert_eq!(is_match(String::from("mississippi"), String::from("mis*is*.p*.")), true);
+        assert_eq!(
+            is_match(String::from("mississippi"), String::from("mis*is*p*.")),
+            false
+        );
+        assert_eq!(
+            is_match(String::from("mississippi"), String::from("mis*is*.p*.")),
+            true
+        );
     }
 }
+

@@ -41,10 +41,9 @@
 // words[i].length == 2
 // words[i] consists of lowercase English letters.
 
-
 pub mod a2131 {
-    use std::collections::HashMap;
     use std::cmp::max;
+    use std::collections::HashMap;
 
     pub fn longest_palindrome_failed(words: Vec<String>) -> i32 {
         let mut pairs: HashMap<String, i32> = HashMap::new();
@@ -59,7 +58,10 @@ pub mod a2131 {
                     center_count = max(center_count, *ctr_hash.get(&i).unwrap() + 1);
                     ctr_hash.entry(i.clone()).and_modify(|k| *k += 1);
                 } else {
-                    ctr_hash.entry(i.clone()).and_modify(|k| *k += 1).or_insert(1);
+                    ctr_hash
+                        .entry(i.clone())
+                        .and_modify(|k| *k += 1)
+                        .or_insert(1);
                 }
             }
             let rev = revstr(&i);
@@ -102,7 +104,6 @@ pub mod a2131 {
     }
 
     pub fn longest_palindrome(words: Vec<String>) -> i32 {
-        use std::collections::HashMap;
         use std::cmp::Ordering::{Equal, Greater, Less};
         let mut ctr = 0;
         let get_key = |w: &str| w.bytes().fold(0, |acc, b| acc | 1 << (b - b'a'));
@@ -124,14 +125,10 @@ pub mod a2131 {
         dbl_h.into_values().for_each(|x| ctr += 2 * (x / 2));
 
         // count min equal counts
-        sngl_h
-            .values()
-            .for_each(|&(n1, n2)| ctr += 2 * n1.min(n2));
+        sngl_h.values().for_each(|&(n1, n2)| ctr += 2 * n1.min(n2));
 
         2 * ctr
     }
-
-
 
     pub fn longest_palindrome_fastest(words: Vec<String>) -> i32 {
         let mut d = HashMap::new();
@@ -140,27 +137,28 @@ pub mod a2131 {
         }
         let mut ans = 0;
         let mut mid = 0;
-        for (w,n) in &d {
+        for (w, n) in &d {
             if w[0] == w[1] {
-                if n%2 == 0 {
-                    ans += 2*n;
+                if n % 2 == 0 {
+                    ans += 2 * n;
                 } else {
                     mid = 1;
-                    ans += 2*(n-1);
+                    ans += 2 * (n - 1);
                 }
             } else {
-                let k = vec!{w[1], w[0]};
-                ans += 2*n.min(d.get(&k[..]).unwrap_or(&0));
+                let k = vec![w[1], w[0]];
+                ans += 2 * n.min(d.get(&k[..]).unwrap_or(&0));
             }
         }
-        ans + 2*mid
+        ans + 2 * mid
     }
 }
 
-
 #[cfg(test)]
 mod test {
-    use crate::leet75_L2::a_02131_longest_palindrome_by_concatenating_two_letter_words::a2131::{longest_palindrome, revstr};
+    use crate::leet75_L2::a_02131_longest_palindrome_by_concatenating_two_letter_words::a2131::{
+        longest_palindrome, revstr,
+    };
 
     #[test]
     fn t_000() {
@@ -174,29 +172,64 @@ mod test {
 
     #[test]
     fn t_002() {
-        assert_eq!(0, longest_palindrome(vec!["xq".to_string(), "ut".to_string()]), );
+        assert_eq!(
+            0,
+            longest_palindrome(vec!["xq".to_string(), "ut".to_string()]),
+        );
     }
 
     #[test]
     fn t_003() {
-        assert_eq!(8, longest_palindrome(vec!["ab".to_string(), "ty".to_string(), "yt".to_string(),
-                                              "lc".to_string(), "cl".to_string(), "ab".to_string()]));
+        assert_eq!(
+            8,
+            longest_palindrome(vec![
+                "ab".to_string(),
+                "ty".to_string(),
+                "yt".to_string(),
+                "lc".to_string(),
+                "cl".to_string(),
+                "ab".to_string()
+            ])
+        );
     }
 
     #[test]
     fn t_004() {
-        assert_eq!(6, longest_palindrome(vec!["lc".to_string(), "cl".to_string(), "gg".to_string()]));
+        assert_eq!(
+            6,
+            longest_palindrome(vec!["lc".to_string(), "cl".to_string(), "gg".to_string()])
+        );
     }
 
     #[test]
     fn t_005() {
-        assert_eq!(2, longest_palindrome(vec!["cc".to_string(), "ll".to_string(), "xx".to_string()]))
+        assert_eq!(
+            2,
+            longest_palindrome(vec!["cc".to_string(), "ll".to_string(), "xx".to_string()])
+        )
     }
 
     #[test]
     fn t_006() {
-        assert_eq!(22, longest_palindrome(vec!["dd".to_string(), "aa".to_string(), "bb".to_string(), "dd".to_string(), "aa".to_string(),
-                                               "dd".to_string(), "bb".to_string(), "dd".to_string(), "aa".to_string(),
-                                               "cc".to_string(), "bb".to_string(), "cc".to_string(), "dd".to_string(), "cc".to_string()]));
+        assert_eq!(
+            22,
+            longest_palindrome(vec![
+                "dd".to_string(),
+                "aa".to_string(),
+                "bb".to_string(),
+                "dd".to_string(),
+                "aa".to_string(),
+                "dd".to_string(),
+                "bb".to_string(),
+                "dd".to_string(),
+                "aa".to_string(),
+                "cc".to_string(),
+                "bb".to_string(),
+                "cc".to_string(),
+                "dd".to_string(),
+                "cc".to_string()
+            ])
+        );
     }
 }
+

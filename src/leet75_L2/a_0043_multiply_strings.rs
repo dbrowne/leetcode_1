@@ -28,9 +28,7 @@
 // num1 and num2 consist of digits only.
 // Both num1 and num2 do not contain any leading zero, except the number 0 itself.
 
-pub  mod a43 {
-    use std::collections::VecDeque;
-    use std::char::from_digit;
+pub mod a43 {
     pub fn multiply(num1: String, num2: String) -> String {
         let num1: Vec<u32> = num1.bytes().map(|x| (x - b'0') as u32).collect();
         let num2: Vec<u32> = num2.bytes().map(|x| (x - b'0') as u32).collect();
@@ -46,17 +44,20 @@ pub  mod a43 {
             res[i - 1] += res[i] / 10;
             res[i] = res[i] % 10;
         }
-        let mut res: String = res.iter().fold(String::from(""),
-                                              |mut acc, &x| {
-                                                  acc.push((x as u8 + '0' as u8) as char);
-                                                  acc
-                                              });
+        let mut res: String = res.iter().fold(String::from(""), |mut acc, &x| {
+            acc.push((x as u8 + '0' as u8) as char);
+            acc
+        });
         while !res.is_empty() && res.chars().nth(0) == Some('0') {
             res.remove(0);
         }
         println!("res = {:#?}", res);
-        if res.is_empty() { String::from("0") } else { res }
+        if res.is_empty() {
+            String::from("0")
+        } else {
+            res
         }
+    }
 
     pub fn multiply_faster(num1: String, num2: String) -> String {
         let num1: Vec<u8> = num1
@@ -108,21 +109,23 @@ pub  mod a43 {
 
         out_str
     }
-
 }
 
 #[cfg(test)]
-mod test{
+mod test {
     use crate::leet75_L2::a_0043_multiply_strings::a43::multiply;
 
     #[test]
-    fn test_000(){
-        assert_eq!("6",multiply("2".to_string(),"3".to_string()) );
+    fn test_000() {
+        assert_eq!("6", multiply("2".to_string(), "3".to_string()));
     }
 
     #[test]
-    fn test_001(){
-        assert_eq!("175".to_string(),multiply("25".to_string(),"7".to_string()) );
+    fn test_001() {
+        assert_eq!(
+            "175".to_string(),
+            multiply("25".to_string(), "7".to_string())
+        );
     }
-
 }
+

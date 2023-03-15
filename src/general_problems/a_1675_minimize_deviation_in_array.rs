@@ -40,7 +40,6 @@
 // 2 <= n <= 5 * 104
 // 1 <= nums[i] <= 109
 
-use std::collections::BinaryHeap;
 pub  mod  a_1675{
     use std::collections::BinaryHeap;
 
@@ -75,7 +74,7 @@ pub  mod  a_1675{
 
 #[cfg(test)]
 mod  test{
-    use crate::general_problems::a_01675_minimize_deviation_in_array::a_1675::minimum_deviation;
+    use crate::general_problems::a_1675_minimize_deviation_in_array::a_1675::minimum_deviation;
 
     #[test]
     fn t_001(){

@@ -4,7 +4,6 @@
  * dwight@dwightjbrowne.com
  */
 
-
 // https://leetcode.com/problems/pacific-atlantic-water-flow/
 // There is an m x n rectangular island that borders both the Pacific Ocean and Atlantic Ocean. The Pacific Ocean touches the island's left and top edges, and the Atlantic Ocean touches the island's right and bottom edges.
 //
@@ -51,11 +50,10 @@
 // 1 <= m, n <= 200
 // 0 <= heights[r][c] <= 105
 
-pub  mod  a0417{
+pub mod a0417 {
     use std::collections::VecDeque;
 
     pub fn pacific_atlantic(heights: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
-
         let mut res = vec![];
         let rows = heights.len();
         let cols = heights.first().map_or(0, |v| v.len());
@@ -86,14 +84,14 @@ pub  mod  a0417{
         let directions = [(0, 1), (1, 0), (0, -1), (-1, 0)];
 
         while let Some((x, y, ocean)) = points.pop_front() {
-
             path[x as usize][y as usize] |= ocean;
 
             for &(xd, yd) in directions.iter() {
                 let (x_new, y_new) = (x + xd, y + yd);
 
                 // check out of bounds
-                if x_new < 0 || x_new > (rows - 1) as i32 || y_new < 0 || y_new > (cols - 1) as i32 {
+                if x_new < 0 || x_new > (rows - 1) as i32 || y_new < 0 || y_new > (cols - 1) as i32
+                {
                     continue;
                 }
 
@@ -123,12 +121,9 @@ pub  mod  a0417{
         res
     }
 
-
-
     ///// Alternate solution:
-    use std::cmp;
 
-    struct Solution{}
+    struct Solution {}
 
     struct Coor {
         row: i32,
@@ -141,8 +136,7 @@ pub  mod  a0417{
         }
 
         pub fn Valid(&self, width: usize, height: usize) -> bool {
-            return self.row >= 0 && self.col >= 0
-                && self.Col() < width && self.Row() < height;
+            return self.row >= 0 && self.col >= 0 && self.Col() < width && self.Row() < height;
         }
 
         pub fn Row(&self) -> usize {
@@ -211,7 +205,8 @@ pub  mod  a0417{
                         Coor::new(c.row - 1, c.col),
                         Coor::new(c.row + 1, c.col),
                         Coor::new(c.row, c.col + 1),
-                        Coor::new(c.row, c.col - 1)];
+                        Coor::new(c.row, c.col - 1),
+                    ];
 
                     for nc in newCoor {
                         if !nc.Valid(width, height) {
@@ -221,8 +216,7 @@ pub  mod  a0417{
                         //     continue;
                         // }
                         let mut newVal = 0;
-                        if heights[nc.Row()][nc.Col()]
-                            >= heights[c.Row()][c.Col()] {
+                        if heights[nc.Row()][nc.Col()] >= heights[c.Row()][c.Col()] {
                             newVal = 1;
                         }
 
@@ -239,17 +233,28 @@ pub  mod  a0417{
     }
 }
 
-
 #[cfg(test)]
-mod  test{
+mod test {
     use crate::leet75_L2::a_00417_pacific_atlantic_water_flow::a0417::pacific_atlantic;
 
     #[test]
-    fn t_000(){
-
-        let  inp:Vec<Vec<i32>> = vec![vec![1,2,2,3,5],vec![3,2,3,4,4],vec![2,4,5,3,1],
-                          vec![6,7,1,4,5],vec![5,1,1,2,4]];
-        let  ans:Vec<Vec<i32>> = vec![vec![0,4],vec![1,3],vec![1,4],vec![2,2],vec![3,0],vec![3,1],vec![4,0]];
-        assert_eq!(ans,pacific_atlantic(inp));
+    fn t_000() {
+        let inp: Vec<Vec<i32>> = vec![
+            vec![1, 2, 2, 3, 5],
+            vec![3, 2, 3, 4, 4],
+            vec![2, 4, 5, 3, 1],
+            vec![6, 7, 1, 4, 5],
+            vec![5, 1, 1, 2, 4],
+        ];
+        let ans: Vec<Vec<i32>> = vec![
+            vec![0, 4],
+            vec![1, 3],
+            vec![1, 4],
+            vec![2, 2],
+            vec![3, 0],
+            vec![3, 1],
+            vec![4, 0],
+        ];
+        assert_eq!(ans, pacific_atlantic(inp));
     }
 }

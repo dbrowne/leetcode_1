@@ -4,7 +4,6 @@
  * dwight@dwightjbrowne.com
  */
 
-
 // https://leetcode.com/problems/add-binary/
 // Given two binary strings a and b, return their sum as a binary string.
 //
@@ -27,9 +26,7 @@
 // Each string does not contain leading zeros except for the zero itself.
 
 pub mod a67 {
-    use std::cmp;
     use std::cmp::max;
-    use std::fmt::Alignment::Left;
 
     pub fn add_binary(a: String, b: String) -> String {
         let a_v: Vec<char> = a.chars().collect();
@@ -41,36 +38,46 @@ pub mod a67 {
         let mut carry = false;
         for i in (0..max_len).rev() {
             let offset = max_len - i;
-            let p = if a_l < offset { None } else { Some(a_v[a_l - offset]) };
-            let q = if b_l < offset { None } else { Some(b_v[b_l - offset]) };
+            let p = if a_l < offset {
+                None
+            } else {
+                Some(a_v[a_l - offset])
+            };
+            let q = if b_l < offset {
+                None
+            } else {
+                Some(b_v[b_l - offset])
+            };
             match (p, q) {
-                (Some(x), Some(y)) => {
-                    match (x, y) {
-                        ('1', '1') => {
-                            if carry { ans[i] = '1' }
-                            carry = true
+                (Some(x), Some(y)) => match (x, y) {
+                    ('1', '1') => {
+                        if carry {
+                            ans[i] = '1'
                         }
-                        ('0', '1') | ('1', '0') => {
-                            if !carry {
-                                ans[i] = '1';
-                                carry = false
-                            }
-                        }
-                        ('0', '0') => {
-                            if carry {
-                                ans[i] = '1';
-                                carry = false
-                            }
-                        }
-
-                        _ => unreachable!()
+                        carry = true
                     }
-                }
+                    ('0', '1') | ('1', '0') => {
+                        if !carry {
+                            ans[i] = '1';
+                            carry = false
+                        }
+                    }
+                    ('0', '0') => {
+                        if carry {
+                            ans[i] = '1';
+                            carry = false
+                        }
+                    }
+
+                    _ => unreachable!(),
+                },
                 (Some(x), None) | (None, Some(x)) => {
                     if carry && x == '0' {
                         ans[i] = '1';
                         carry = false
-                    } else if !carry { ans[i] = x }
+                    } else if !carry {
+                        ans[i] = x
+                    }
                 }
                 _ => {
                     if carry {
@@ -80,7 +87,9 @@ pub mod a67 {
                 }
             }
         }
-        if ans[0] == '0' { ans.remove(0); }
+        if ans[0] == '0' {
+            ans.remove(0);
+        }
         ans.iter().collect()
     }
 }
@@ -91,11 +100,17 @@ mod test {
 
     #[test]
     fn test_000() {
-        assert_eq!("100".to_string(), add_binary("11".to_string(), "1".to_string()));
+        assert_eq!(
+            "100".to_string(),
+            add_binary("11".to_string(), "1".to_string())
+        );
     }
 
     #[test]
-    fn test_001(){
-        assert_eq!("1110".to_string(),add_binary("111".to_string(),"111".to_string()))
+    fn test_001() {
+        assert_eq!(
+            "1110".to_string(),
+            add_binary("111".to_string(), "111".to_string())
+        )
     }
 }

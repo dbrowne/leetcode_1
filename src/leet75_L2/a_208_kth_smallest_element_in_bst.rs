@@ -49,8 +49,8 @@ pub mod a208 {
         }
     }
 
-    use std::rc::Rc;
     use std::cell::RefCell;
+    use std::rc::Rc;
 
     pub fn kth_smallest(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> i32 {
         inorder(root, k, 0).1.unwrap()
@@ -74,7 +74,6 @@ pub mod a208 {
     }
 
     pub fn kth_smallest_iterative(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> i32 {
-
         let mut k = k;
         let mut stack = vec![];
         let mut curr = root;
@@ -94,15 +93,14 @@ pub mod a208 {
                 panic!("BST too small");
             }
         }
-
     }
 }
-    #[cfg(test)]
-    mod test {
-        use crate::leet75_L2::a_208_kth_smallest_element_in_bst::a208::kth_smallest;
+#[cfg(test)]
+mod test {
 
-        #[test]
-        fn t_0001() {
-            assert_eq!(0, 0)
-        }
+    #[test]
+    fn t_0001() {
+        assert_eq!(0, 0)
     }
+}
+

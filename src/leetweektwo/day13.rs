@@ -1,7 +1,5 @@
 pub mod day_13 {
-    use std::arch::x86_64::_mm256_fnmsub_pd;
     use std::collections::HashMap;
-    use std::os::unix::raw::ino_t;
 
     pub fn two_sums(nums: Vec<i32>, target: i32) -> Vec<i32> {
         let mut num_map: HashMap<i32, i32> = HashMap::new();

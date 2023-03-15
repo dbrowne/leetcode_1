@@ -33,10 +33,9 @@
 // The number of nodes in the tree is in the range [0, 5000].
 // -104 <= Node.val <= 104
 
-pub  mod a110 {
-    use std::rc::Rc;
+pub mod a110 {
     use std::cell::RefCell;
-    use std::cmp::max;
+    use std::rc::Rc;
 
     #[derive(Debug, PartialEq, Eq)]
     pub struct TreeNode {
@@ -68,20 +67,20 @@ pub  mod a110 {
             Some(node_ref) => {
                 let left = is_b(node_ref.borrow_mut().left.as_ref(), f) + 1;
                 let right = is_b(node_ref.borrow_mut().right.as_ref(), f) + 1;
-                if ((left - right).abs() > 1) {
+                if (left - right).abs() > 1 {
                     *f = false;
                 }
                 return std::cmp::max(left, right);
-            },
+            }
         }
     }
 }
 
-
 #[cfg(test)]
-mod test{
+mod test {
     #[test]
-    fn t_001(){
-        assert_eq!(0,0 );
+    fn t_001() {
+        assert_eq!(0, 0);
     }
 }
+

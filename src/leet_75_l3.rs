@@ -9,4 +9,3 @@ mod a_136_single_number;
 mod a_90_subsets_II;
 mod a_49_group_anagrams;
 mod a_28_find_the_index_of_first_occurrence;
-mod a_721_accounts_merge;

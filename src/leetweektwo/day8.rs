@@ -1,7 +1,5 @@
 pub mod day_eight {
-    use std::borrow::Borrow;
     use std::cell::RefCell;
-    use std::cmp;
     use std::rc::Rc;
 
     type OptNode = Option<Rc<RefCell<TreeNode>>>;

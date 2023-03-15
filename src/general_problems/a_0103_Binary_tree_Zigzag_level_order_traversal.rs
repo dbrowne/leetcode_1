@@ -29,9 +29,9 @@
 // -100 <= Node.val <= 100
 
 pub mod a_103 {
-    use std::rc::Rc;
     use std::cell::RefCell;
     use std::collections::VecDeque;
+    use std::rc::Rc;
 
     #[derive(Debug, PartialEq, Eq)]
     pub struct TreeNode {
@@ -46,13 +46,12 @@ pub mod a_103 {
             TreeNode {
                 val,
                 left: None,
-                right: None
+                right: None,
             }
         }
     }
 
     pub fn zigzag_level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
-        use std::collections::VecDeque;
         let mut ans = vec![];
         fn dfs(root: Option<Rc<RefCell<TreeNode>>>, levels: &mut Vec<VecDeque<i32>>, dpt: usize) {
             if let Some(r) = root {
@@ -72,10 +71,7 @@ pub mod a_103 {
 
         dfs(root, &mut ans, 0);
         ans.into_iter()
-           .map(|d| d.into_iter().collect::<Vec<_>>())
-           .collect()
+            .map(|d| d.into_iter().collect::<Vec<_>>())
+            .collect()
     }
-
 }
-
-

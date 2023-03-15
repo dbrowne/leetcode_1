@@ -26,9 +26,7 @@
 // The number of nodes in the tree is in the range [0, 104].
 // -100 <= Node.val <= 100
 
-
-
-pub  mod  a_104 {
+pub mod a_104 {
     // Definition for a binary tree node.
     #[derive(Debug, PartialEq, Eq)]
     pub struct TreeNode {
@@ -43,15 +41,13 @@ pub  mod  a_104 {
             TreeNode {
                 val,
                 left: None,
-                right: None
+                right: None,
             }
         }
     }
 
-    use std::borrow::BorrowMut;
-    use std::rc::Rc;
     use std::cell::RefCell;
-    use std::cmp::max;
+    use std::rc::Rc;
 
     pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         let mut max_depth = 0;
