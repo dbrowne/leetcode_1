@@ -48,3 +48,6 @@ mod a_0109_convert_sorted_list_to_binary_search_t;
 mod a_0721_accounts_merge;
 mod a_0129_sum_root_of_leaf_numbers;
 mod a_0958_check_completeness_of_a_binary_tree;
+mod a_1319_number_of_operations_to_make_net;
+mod a_0087_Scramble_string;
+mod a_1402_reducing_dishes;
