@@ -51,3 +51,6 @@ mod a_0958_check_completeness_of_a_binary_tree;
 mod a_1319_number_of_operations_to_make_net;
 mod a_0087_Scramble_string;
 mod a_1402_reducing_dishes;
+mod a_2405_optimal_partition_of_string;
+mod a_2439_minimize_max_of_arr;
+mod a_0881_boats_to_save_people;
