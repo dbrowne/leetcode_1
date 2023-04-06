@@ -54,3 +54,4 @@ mod a_1402_reducing_dishes;
 mod a_2405_optimal_partition_of_string;
 mod a_2439_minimize_max_of_arr;
 mod a_0881_boats_to_save_people;
+mod a_1254_num_of_closed_islands;
