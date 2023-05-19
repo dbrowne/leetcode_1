@@ -22,14 +22,14 @@ pub mod day_seven {
 
     impl Solution {
         pub fn first_bad_version(&self, n: i32) -> i32 {
-            if self.is_Bad_Version(1) {
+            if self.is_bad_version(1) {
                 return 1;
             }
             let mut good = 1i64;
             let mut bad = n as i64; // deal with overflow
             loop {
                 let mid = (good + bad) / 2;
-                if self.is_Bad_Version(mid as i32) {
+                if self.is_bad_version(mid as i32) {
                     bad = mid;
                 } else {
                     good = mid;
@@ -40,7 +40,7 @@ pub mod day_seven {
             }
         }
 
-        pub fn is_Bad_Version(&self, n: i32) -> bool {
+        pub fn is_bad_version(&self, n: i32) -> bool {
             self.bad_version <= n
         }
         pub fn new(bad_version: i32) -> Self {

@@ -2,7 +2,6 @@ pub mod o7 {
 
     pub fn reverse_bad(x: i32) -> i32 {
         let mut stk: Vec<i32> = Vec::new();
-        let mut res = 0;
         if x == i32::MIN {
             return 0;
         }
@@ -11,7 +10,7 @@ pub mod o7 {
         }
         let mut res = x;
         loop {
-            let mut tmp = res % 10;
+            let tmp = res % 10;
 
             if res.abs() < 10 {
                 stk.push(res);

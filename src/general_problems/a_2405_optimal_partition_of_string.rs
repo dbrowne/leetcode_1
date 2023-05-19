@@ -31,24 +31,25 @@ pub  mod  a2405{
     pub  fn  partition_string(s: String)->i32{
         // Based on C++ solution
         const  START: u8 = b'a';
-        let  mut lastSeen:Vec<i32> =vec![-1;26];
+        let  mut last_seen:Vec<i32> =vec![-1;26];
         let  mut count:i32 = 1;
         let  mut sub_start:i32 = 0;
         let  s_chars:Vec<char> = s.chars().collect();
 
         for idx in 0..s_chars.len()  {
             let  val:usize = (s_chars[idx] as u8 - START) as usize;
-            if  lastSeen[val]  >= sub_start{
+            if  last_seen[val]  >= sub_start{
                 count +=1;
                 sub_start = idx as i32;
             }
-            lastSeen[val] = idx as i32;
+            last_seen[val] = idx as i32;
 
         }
         count
     }
 }
 #[cfg(test)]
+
 mod  test{
     use crate::general_problems::a_2405_optimal_partition_of_string::a2405::partition_string;
 

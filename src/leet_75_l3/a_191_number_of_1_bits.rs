@@ -44,7 +44,7 @@
 // Follow up: If this function is called many times, how would you optimize it?
 
 pub  mod  a191{
-    pub  fn  hamminWeight(n: u32) ->i32{
+    pub  fn hammin_weight(n: u32) ->i32{
         n.count_ones() as i32
     }
 }
@@ -52,13 +52,13 @@ pub  mod  a191{
 
 #[cfg(test)]
 mod  test{
-    use crate::leet_75_l3::a_191_number_of_1_bits::a191::hamminWeight;
+    use crate::leet_75_l3::a_191_number_of_1_bits::a191::hammin_weight;
 
     #[test]
     fn t_001(){
         let  inp:u32 = 0b00000000000000000000000000001011;
         let  ans = 3;
-        assert_eq!(ans, hamminWeight(inp));
+        assert_eq!(ans, hammin_weight(inp));
 
     }
 
@@ -66,7 +66,7 @@ mod  test{
     fn t_002(){
         let  inp:u32 = 0b00000000000000000000000010000000;
         let  ans = 1;
-        assert_eq!(ans, hamminWeight(inp));
+        assert_eq!(ans, hammin_weight(inp));
     }
 
     #[test]
@@ -74,6 +74,6 @@ mod  test{
         let  inp:u32=0b11111111111111111111111111111101;
         let  ans =31;
 
-        assert_eq!(ans, hamminWeight(inp));
+        assert_eq!(ans, hammin_weight(inp));
     }
 }

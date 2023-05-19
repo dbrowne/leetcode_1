@@ -22,7 +22,7 @@ pub mod tentwosix {
 
     pub fn max_ancestor_diff(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         match root {
-            Some(node) => {
+            Some(_node) => {
                 return 0;
             }
             None => {
@@ -30,7 +30,7 @@ pub mod tentwosix {
             }
         }
     }
-    pub fn helper(node: TreeNode, curMax: i32, curMin: i32) -> i32 {
+    pub fn helper(node: TreeNode, cur_max: i32, cur_min: i32) -> i32 {
         0
     }
 }

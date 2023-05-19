@@ -79,7 +79,7 @@ pub mod a49 {
 
 #[cfg(test)]
 mod test {
-    use crate::leet_75_l3::a_49_group_anagrams::a49::group_anagrams;
+    use crate::leet_75_l3::a_49_group_anagrams::a49::{group_anagrams, group_anagrams_faster};
 
     #[test]
     fn t_001() {
@@ -110,7 +110,7 @@ mod test {
     fn t_003() {
         let inp = vec!["a".to_string()];
         let ans = vec![vec!["a".to_string()]];
-        assert_eq!(ans, group_anagrams(inp));
+        assert_eq!(ans, group_anagrams_faster(inp));
     }
 }
 

@@ -5,5 +5,5 @@
  */
 
 pub  mod  permutation;
-mod KmessadArray;
+mod k_messad_array;
 
