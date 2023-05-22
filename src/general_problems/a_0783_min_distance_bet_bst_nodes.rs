@@ -51,7 +51,7 @@ impl TreeNode {
   }
 }
     pub fn min_diff_in_bst(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        let mut ans:i32 = 0;
+        let mut ans;
         let  mut stk:Vec<Option<Rc<RefCell<TreeNode>>>> = vec![];
         stk.push(root);
         let  mut vals:Vec<i32> = vec![];

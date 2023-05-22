@@ -40,7 +40,7 @@ pub mod a25 {
 
                 if let Some(group) = g_head.replace(node) {
 
-                    result_tail.insert(group);
+                    _=result_tail.insert(group);
                     while let Some(node) = result_tail {
                         result_tail = &mut node.next;
                     }

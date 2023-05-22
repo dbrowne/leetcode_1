@@ -69,10 +69,9 @@ pub mod a382 {
 
         fn get_random(&self) -> i32 {
             use rand::*;
-            let mut ans = 0;
+            let mut ans;
 
             let mut scope: f64 = 1.0;
-            let mut chosen_value = 0;
             let mut current_node = self.head.as_ref();
             ans = current_node.unwrap().val;
 
