@@ -74,7 +74,7 @@ pub mod a875 {
 
 #[cfg(test)]
 mod test {
-    use crate::general_problems::a_875_koko_eating_bananas::a875::min_eating_speed;
+    use crate::general_problems::a_0875_koko_eating_bananas::a875::min_eating_speed;
 
     #[test]
     fn t_001() {
