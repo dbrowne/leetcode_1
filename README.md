@@ -80,7 +80,7 @@
   </a>
 </div>
 
-This is my personal repo of Rust Github solutions. Use at your own risk. Most of the solutions are mine some have been copied.
+This is my personal repo of Rust Leetcode solutions. Use at your own risk. Most of the solutions are mine some have been copied.
 
 This is a work in progress:
 * Things will change drastically
