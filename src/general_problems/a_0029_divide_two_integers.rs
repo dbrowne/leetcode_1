@@ -34,8 +34,6 @@
 
 
 pub mod a29 {
-    use std::arch::x86_64::_andn_u32;
-
     pub fn divide(dividend: i32, divisor: i32) -> i32 {
         if dividend == -2147483648 && divisor == -1 {
             return 2147483647;
@@ -150,8 +148,8 @@ mod test {
 
     #[test]
     fn t_007() {
-        let  big_d= 2147483645;
-        let  divisor = 117557;
-        assert_eq!(18267,divide(big_d,divisor) );
+        let big_d = 2147483645;
+        let divisor = 117557;
+        assert_eq!(18267, divide(big_d, divisor));
     }
 }

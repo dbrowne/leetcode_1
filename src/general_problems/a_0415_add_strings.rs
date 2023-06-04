@@ -43,9 +43,9 @@ pub mod a415 {
         let ans_len = max(first_l, second_l);
         let mut ans_v: Vec<char> = Vec::new();
         let mut carry: bool = false;
-        for idx in 0..ans_len {
-            let mut tmp1: u8 = 0;
-            let mut tmp2: u8 = 0;
+        for _idx in 0..ans_len {
+            let mut tmp1:u8;
+            let mut tmp2:u8;
             let (x, y) = (first_v.pop(), second_v.pop());
             match (x, y) {
                 (Some(x), Some(y)) => {

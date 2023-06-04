@@ -63,3 +63,5 @@ mod a_0029_divide_two_integers;
 mod a_0704_binary_search;
 mod a_0035_search_insert_position;
 mod a_0030_substr_w_concat_all_words;
+mod a_0031_next_permutation;
+mod a_0032_longest_valid_paren;

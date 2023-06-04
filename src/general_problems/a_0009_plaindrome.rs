@@ -8,7 +8,6 @@ pub mod a_009 {
     pub fn is_palindrome(x: i32) -> bool {
         let mut stk: Vec<i32> = Vec::new();
         let mut tmp = x;
-        let mut mid = 0;
 
         if x < 0 {
             return false;
