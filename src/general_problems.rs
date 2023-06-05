@@ -65,3 +65,5 @@ mod a_0035_search_insert_position;
 mod a_0030_substr_w_concat_all_words;
 mod a_0031_next_permutation;
 mod a_0032_longest_valid_paren;
+mod a_0034_find_first_and_last_pos_in_arr;
+mod a_0217_contains_dupes;
